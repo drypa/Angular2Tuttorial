@@ -1,0 +1,7 @@
+{
+  "name": "angular2-tuttorial",
+  "dependencies": {},
+  "globalDevDependencies": {
+    "karma": "registry:dt/karma#0.13.9+20160811111312"
+  }
+}
