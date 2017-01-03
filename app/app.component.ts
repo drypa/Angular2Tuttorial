@@ -1,14 +1,31 @@
 import { Component } from '@angular/core';
 
+const heroes:Array<Hero> = [
+  {id: 11, name: 'Mr. Nice'},
+  {id: 12, name: 'Narco'},
+  {id: 13, name: 'Bombasto'},
+  {id: 14, name: 'Celeritas'},
+  {id: 15, name: 'Magneta'},
+  {id: 16, name: 'RubberMan'},
+  {id: 17, name: 'Dynama'},
+  {id: 18, name: 'Dr IQ'},
+  {id: 19, name: 'Magma'},
+  {id: 20, name: 'Tornado'}
+];
+
+
 @Component({
   selector: 'my-app',
-  templateUrl: 'app/app.component.html'
+  templateUrl: 'app/app.component.html',
+  styleUrls: ['app/app.component.css']
 })
 export class AppComponent {
   name = 'Angular';
   title = 'Tour of Heroes';
-  hero:Hero = {
-    id: 1,
-    name: 'Windstorm'
-  };
+  heroes = heroes;
+  selectedHero: Hero = heroes[0];
+  onSelect= (hero)=>{
+    this.selectedHero = hero;
+    console.log(hero.name);
+  }
 }
