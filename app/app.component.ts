@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import Hero from "./Hero";
 
 const heroes:Array<Hero> = [
   {id: 11, name: 'Mr. Nice'},
@@ -23,8 +24,8 @@ export class AppComponent {
   name = 'Angular';
   title = 'Tour of Heroes';
   heroes = heroes;
-  selectedHero: Hero = heroes[0];
-  onSelect= (hero)=>{
+  selectedHero:Hero = heroes[0];
+  onSelect = (hero:Hero)=> {
     this.selectedHero = hero;
     console.log(hero.name);
   }
