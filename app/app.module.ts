@@ -5,10 +5,20 @@ import {FormsModule} from '@angular/forms';
 import { AppComponent }  from './app.component';
 import {HeroDetailComponent} from './hero-detail.component'
 import HeroesComponent from "./heroes.component";
+import {RouterModule} from '@angular/router'
+
+let routes =
+  RouterModule.forRoot([
+    {
+      path: 'heroes',
+      component: HeroesComponent
+    }
+  ]);
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule ],
-  declarations: [ AppComponent, HeroDetailComponent, HeroesComponent ],
-  bootstrap:    [ AppComponent ]
+  imports: [BrowserModule, FormsModule, routes],
+  declarations: [AppComponent, HeroDetailComponent, HeroesComponent],
+  bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
