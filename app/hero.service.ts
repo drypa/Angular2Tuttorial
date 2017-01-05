@@ -10,9 +10,7 @@ export default class HeroService {
 
   getHeroesSlow():Promise<Array<Hero>> {
     return new Promise<Array<Hero>>((resolve)=> {
-      setTimeout(()=> {
         resolve(HEROES)
-      }, 2000);
     });
   }
 }

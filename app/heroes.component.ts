@@ -12,7 +12,7 @@ export default class HeroesComponent implements OnInit {
   constructor(private heroService:HeroService) {
   }
 
-  heroes:Array<Hero>;
+  heroes:Array<Hero> = [];
   selectedHero:Hero;
   onSelect = (hero:Hero)=> {
     this.selectedHero = hero;
