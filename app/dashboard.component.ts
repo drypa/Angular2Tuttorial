@@ -13,7 +13,7 @@ export default class DashboardComponent implements OnInit{
 
   heroes:Array<Hero> = [];
   ngOnInit():void {
-    this.heroService.getHeroesSlow().then((heroes)=> {
+    this.heroService.getHeroes().then((heroes)=> {
       this.heroes = heroes;
     });
   }

@@ -20,7 +20,7 @@ export default class HeroesComponent implements OnInit {
   };
 
   ngOnInit():void {
-    this.heroService.getHeroesSlow().then((heroes)=> {
+    this.heroService.getHeroes().then((heroes)=> {
       this.heroes = heroes;
       this.selectedHero = this.heroes[0];
     });

@@ -4,13 +4,13 @@ import {HEROES} from './mock-heroes';
 
 @Injectable()
 export default class HeroService {
-  getHeroes():Array<Hero> {
-    return HEROES;
+  getHeroes():Promise<Array<Hero>> {
+    return new Promise<Array<Hero>>((resolve)=> {
+      resolve(HEROES)
+    });
   }
 
-  getHeroesSlow():Promise<Array<Hero>> {
-    return new Promise<Array<Hero>>((resolve)=> {
-        resolve(HEROES)
-    });
+  getHero(id:number):Promise<Hero> {
+    return this.getHeroes().then((heroes)=> heroes.find(x=> x.id == id));
   }
 }
