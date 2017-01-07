@@ -2,11 +2,7 @@ import { InMemoryDbService } from 'angular-in-memory-web-api';
 import Hero from "./Hero";
 
 export default class InMemoryDataService  implements InMemoryDbService {
-  constructor(){
-    console.log('ctor');
-  }
   createDb() {
-    console.log('createDb');
     let heroes:Hero[] = [
       {id: 11, name: 'Mr. Nice'},
       {id: 12, name: 'Narco'},
