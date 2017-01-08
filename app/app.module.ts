@@ -13,12 +13,13 @@ import AppRouting from "./app.routing";
 import InMemoryDataService from "./in-memory-data.service";
 import HeroService from "./hero.service";
 import AddHeroComponent from "./add-hero.component";
+import HeroSearchService from "./hero-search.service";
 
 
 @NgModule({
   imports: [BrowserModule, FormsModule, AppRouting, HttpModule, InMemoryWebApiModule.forRoot(InMemoryDataService)],
   declarations: [AppComponent, HeroDetailComponent, HeroesComponent, DashboardComponent, AddHeroComponent],
-  providers: [ HeroService ],
+  providers: [HeroService, HeroSearchService ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
