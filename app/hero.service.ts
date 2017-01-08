@@ -39,4 +39,11 @@ export default class HeroService {
       .then(res=> res.json().data as Hero)
       .catch(this.handleError);
   }
+
+  delete(id:Number):Promise<void> {
+    const url = `${this.heroesUrl}/${id}`;
+    return this.http.delete(url,this.headers)
+      .toPromise()
+      .catch(this.handleError);
+  }
 }

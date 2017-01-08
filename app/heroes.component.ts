@@ -41,6 +41,15 @@ export default class HeroesComponent implements OnInit {
     this.showAddForm = !this.showAddForm;
   }
 
+  deleteHero(hero:Hero):void {
+    this.heroService.delete(hero.id).then(()=> {
+      this.heroes = this.heroes.filter(x=>x !== hero);
+      if(this.selectedHero === hero){
+        this.selectedHero = null;
+      }
+    });
+  }
+
   afterAdd(success:boolean):void {
     if (success) {
       this.showAddForm = false;
