@@ -7,3 +7,7 @@
   <h2>{{selectedHero.name | uppercase}}</h2>
   <button (click)="gotoDetail()">Details</button>
 </div>
+<div>
+  <button (click)="addNew()">Add new</button>
+  <add-hero *ngIf="showAddForm" (onAdded)="afterAdd($event)"></add-hero>
+</div>

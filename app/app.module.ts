@@ -12,11 +12,12 @@ import DashboardComponent from "./dashboard.component";
 import AppRouting from "./app.routing";
 import InMemoryDataService from "./in-memory-data.service";
 import HeroService from "./hero.service";
+import AddHeroComponent from "./add-hero.component";
 
 
 @NgModule({
   imports: [BrowserModule, FormsModule, AppRouting, HttpModule, InMemoryWebApiModule.forRoot(InMemoryDataService)],
-  declarations: [AppComponent, HeroDetailComponent, HeroesComponent, DashboardComponent],
+  declarations: [AppComponent, HeroDetailComponent, HeroesComponent, DashboardComponent, AddHeroComponent],
   providers: [ HeroService ],
   bootstrap: [AppComponent]
 })

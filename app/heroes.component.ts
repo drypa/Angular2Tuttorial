@@ -15,19 +15,36 @@ export default class HeroesComponent implements OnInit {
 
   heroes:Array<Hero> = [];
   selectedHero:Hero;
+
   onSelect(hero:Hero):void {
     this.selectedHero = hero;
     console.log(hero.name);
   }
 
-  gotoDetail():void{
+  gotoDetail():void {
     this.router.navigate(['/detail', this.selectedHero.id])
   }
 
   ngOnInit():void {
+    this.loadHeroes();
+  }
+
+  private loadHeroes():void {
     this.heroService.getHeroes().then((heroes)=> {
       this.heroes = heroes;
-      this.selectedHero = this.heroes[0];
     });
+  }
+
+  public showAddForm:boolean = false;
+
+  addNew() {
+    this.showAddForm = !this.showAddForm;
+  }
+
+  afterAdd(success:boolean):void {
+    if (success) {
+      this.showAddForm = false;
+      this.loadHeroes();
+    }
   }
 }

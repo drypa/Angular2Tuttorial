@@ -23,13 +23,20 @@ export default class HeroService {
 
   getHero(id:number):Promise<Hero> {
     const url = `${this.heroesUrl}/${id}`;
-    return this.http.get(url).toPromise().then(resp => resp.json().data as Hero).catch(this.handleError)
+    return this.http.get(url).toPromise().then(resp => resp.json().data as Hero).catch(this.handleError);
   }
 
   update(hero:Hero):Promise<void>{
     const url = `${this.heroesUrl}/${hero.id}`;
     return this.http.put(url, JSON.stringify(hero),{headers:this.headers})
       .toPromise()
+      .catch(this.handleError);
+  }
+
+  create(name:string):Promise<Hero>{
+    return this.http.post(this.heroesUrl, {name: name})
+      .toPromise()
+      .then(res=> res.json().data as Hero)
       .catch(this.handleError);
   }
 }
