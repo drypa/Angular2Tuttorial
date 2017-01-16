@@ -56,4 +56,16 @@ export default class HeroesComponent implements OnInit {
       this.loadHeroes();
     }
   }
+  private isConfirmDialogVisible:boolean = false;
+  private heroToDelete:Hero;
+  showConfirmDialog(hero:Hero){
+    this.heroToDelete = hero;
+    this.isConfirmDialogVisible =true;
+  }
+  delete(isConfirmed:boolean){
+    if(isConfirmed) {
+      this.deleteHero(this.heroToDelete);
+    }
+    this.isConfirmDialogVisible = false;
+  }
 }

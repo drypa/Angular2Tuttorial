@@ -1,7 +1,7 @@
 <ul class="heroes">
   <li *ngFor="let hero of heroes" (click)="onSelect(hero)" [class.selected]="hero===selectedHero">
     <span class="badge">{{hero.id}}</span> {{hero.name}}
-    <button class="delete" (click)="deleteHero(hero); $event.stopPropagation();">x</button>
+    <button class="delete" (click)="showConfirmDialog(hero); $event.stopPropagation();">x</button>
   </li>
 </ul>
 <div *ngIf="!heroes || !heroes.length">There are no heroes yet!</div>
@@ -13,3 +13,4 @@
   <button (click)="addNew()">Add new</button>
   <add-hero *ngIf="showAddForm" (onAdded)="afterAdd($event)"></add-hero>
 </div>
+<modal-dialog *ngIf="isConfirmDialogVisible" [title]="'delete'" [text]="'Really?'" (isApproved)="delete($event)"></modal-dialog>

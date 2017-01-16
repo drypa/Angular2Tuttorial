@@ -15,6 +15,7 @@ import HeroService from "./hero.service";
 import AddHeroComponent from "./add-hero.component";
 import HeroSearchService from "./hero-search.service";
 import HeroSearchComponent from "./hero-search.component";
+import ModalDialogComponent from "./modal-dialog.component";
 
 
 @NgModule({
@@ -25,7 +26,9 @@ import HeroSearchComponent from "./hero-search.component";
     HeroesComponent,
     DashboardComponent,
     AddHeroComponent,
-    HeroSearchComponent],
+    HeroSearchComponent,
+    ModalDialogComponent
+  ],
   providers: [HeroService, HeroSearchService],
   bootstrap: [AppComponent]
 })
